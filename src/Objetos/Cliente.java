@@ -24,7 +24,7 @@ public class Cliente extends Pessoa {
 	}
 
 	public Cliente(String cpf, String nome, String data_de_nascimento,	String estado_civil, String senha, String renda) throws QtdCpfException, SoNumerosException, SoLetrasException {
-		super(cpf, nome, data_de_nascimento, estado_civil);
+		super(cpf, nome, data_de_nascimento, estado_civil, senha);
 		this.senha = senha;
 		this.renda = renda;
 	}

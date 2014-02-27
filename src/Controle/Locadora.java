@@ -81,9 +81,11 @@ public class Locadora {
 		veiculos.add(v);
 		disponiveis.add(v);
 
+
 	}
 
 	public void adicionarAluguel(Cliente cliente, int dataInicial, int dataFinal, Veiculo veiculo){
+
 		Aluguel a = new Aluguel(cliente, dataInicial, dataFinal, veiculo);
 		a.setTotal(dataInicial, dataFinal);
 		alugueis.add(a);

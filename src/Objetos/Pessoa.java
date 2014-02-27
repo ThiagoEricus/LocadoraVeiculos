@@ -6,7 +6,7 @@ import Excecoes.QtdCpfException;
 import Excecoes.SoLetrasException;
 import Excecoes.SoNumerosException;
 
-public class Pessoa {
+public class Pessoa extends Login{
 
 	protected String cpf;
 	protected String nome;
@@ -21,7 +21,8 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 	public Pessoa(String cpf, String nome, String data_de_nascimento,
-			String estado_civil) throws QtdCpfException, SoNumerosException, SoLetrasException{
+			String estado_civil, String senha) throws QtdCpfException, SoNumerosException, SoLetrasException{
+		super(cpf, senha);
 		if(cpf.length()	!=	11)	
 			throw new QtdCpfException();			
 		for(int	i = 0;	i <	cpf.length(); i++){

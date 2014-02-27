@@ -108,12 +108,27 @@ public class Main {
 			case 5:
 				System.out.println("CPF do cliente");
 				cpf  = sc.next();
-				System.out.println("Data inicial");
-				int dataInicial = sc.nextInt();
-				System.out.println("Data Final");
-				int dataFinal = sc.nextInt();
+				System.out.println("Dia inicial");
+				int diaI = sc.nextInt();
+				System.out.println("Mes inicial");
+				int mesI = sc.nextInt();
+				System.out.println("Ano inicial");
+				int anoI = sc.nextInt();
+				System.out.println("Dia Final");
+				int diaF = sc.nextInt();
+				System.out.println("Mes Final");
+				int mesF = sc.nextInt();
+				System.out.println("Ano Final");
+				int anoF = sc.nextInt();
 				System.out.println("Placa do veiculo");
 				placa =  sc.next();
+				
+				Data dataI = new Data(diaI,mesI,anoI);
+				int dataInicial= dataI.trasformarEmInteiro(diaI,mesI,anoI);
+				
+				Data dataF = new Data(diaF,mesF,anoF);
+				int dataFinal= dataF.trasformarEmInteiro(diaF,mesF,anoF);				
+				
 				l.adicionarAluguel(l.procurarClientes(cpf), dataInicial, dataFinal, l.procurarVeiculos(placa));
 				break;
 			case 6:
@@ -125,13 +140,28 @@ public class Main {
 			case 8:
 				System.out.println("CPF do cliente");
 				cpf  = sc.next();
-				System.out.println("Data inicial");
-				dataInicial = sc.nextInt();
-				System.out.println("Data Final");
-				dataFinal = sc.nextInt();
+				System.out.println("Dia inicial");
+				int diaI2 = sc.nextInt();
+				System.out.println("Mes inicial");
+				int mesI2 = sc.nextInt();
+				System.out.println("Ano inicial");
+				int anoI2 = sc.nextInt();
+				System.out.println("Dia Final");
+				int diaF2 = sc.nextInt();
+				System.out.println("Mes Final");
+				int mesF2 = sc.nextInt();
+				System.out.println("Ano Final");
+				int anoF2 = sc.nextInt();
 				System.out.println("Placa do veiculo");
 				placa =  sc.next();
-				l.adicionarReserva(dataInicial, dataFinal, l.procurarVeiculos(placa), l.procurarClientes(cpf));
+				
+				Data dataI2 = new Data(diaI2,mesI2,anoI2);
+				int dataInicial2= dataI2.trasformarEmInteiro(diaI2,mesI2,anoI2);
+				
+				Data dataF2 = new Data(diaF2,mesF2,anoF2);
+				int dataFinal2= dataF2.trasformarEmInteiro(diaF2,mesF2,anoF2);				
+				
+				l.adicionarReserva(dataInicial2, dataFinal2, l.procurarVeiculos(placa), l.procurarClientes(cpf));
 				break;	
 			case 9:
 				l.listarVeiculosReservados();
