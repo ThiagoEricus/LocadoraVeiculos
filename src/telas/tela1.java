@@ -12,6 +12,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
+import javax.swing.SwingConstants;
 
 public class tela1 extends JFrame {
 
@@ -40,30 +43,44 @@ public class tela1 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.textHighlight);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Clientes");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(29, 46, 186, 139);
-		contentPane.add(btnNewButton);
-		
-		JButton button = new JButton("Funcion\u00E1rios");
-		button.setBounds(222, 46, 186, 139);
+		JButton button = new JButton("");
+		button.setIcon(new ImageIcon("C:\\Users\\ruann\\Desktop\\LocadoraVeiculos-27-02-2014\\Imagens\\funcionario.png"));
+		button.setBounds(225, 71, 173, 109);
 		contentPane.add(button);
 		
-		JButton btnNewButton_1 = new JButton("Novo Cliente\r\n");
-		btnNewButton_1.setBounds(29, 196, 379, 55);
-		contentPane.add(btnNewButton_1);
+		JButton button_1 = new JButton("");
+		button_1.setIcon(new ImageIcon("C:\\Users\\ruann\\Desktop\\LocadoraVeiculos-27-02-2014\\Imagens\\icone_clientes.png"));
+		button_1.setBounds(37, 71, 173, 109);
+		contentPane.add(button_1);
 		
-		JLabel lblNewLabel = new JLabel("                              Locadora de carros tal\r\n");
-		lblNewLabel.setForeground(new Color(0, 0, 255));
-		lblNewLabel.setFont(new Font("Square721 Cn BT", Font.BOLD | Font.ITALIC, 15));
-		lblNewLabel.setBounds(29, 0, 379, 35);
-		contentPane.add(lblNewLabel);
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\ruann\\Desktop\\LocadoraVeiculos-27-02-2014\\Imagens\\adicionar_pessoa_fisica_pequena.png"));
+		btnNewButton.setBounds(37, 196, 361, 43);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblCliente = new JLabel("Cliente");
+		lblCliente.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblCliente.setBounds(100, 182, 53, 14);
+		contentPane.add(lblCliente);
+		
+		JLabel lblFuncionrio = new JLabel("Funcion\u00E1rio");
+		lblFuncionrio.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblFuncionrio.setBounds(278, 183, 79, 14);
+		contentPane.add(lblFuncionrio);
+		
+		JLabel lblNovoCliente = new JLabel("Novo cliente");
+		lblNovoCliente.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblNovoCliente.setBounds(183, 236, 85, 14);
+		contentPane.add(lblNovoCliente);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\ruann\\Desktop\\LocadoraVeiculos-27-02-2014\\Imagens\\Logomarca.png"));
+		label.setBounds(76, 0, 260, 70);
+		contentPane.add(label);
 	}
 }

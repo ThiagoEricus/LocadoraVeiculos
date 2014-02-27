@@ -14,7 +14,7 @@ import javax.swing.JToggleButton;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 
-public class tela_inicial_cliente extends JFrame {
+public class tela_inicial_funcionario extends JFrame {
 
 	private JPanel contentPane;
 
@@ -37,7 +37,7 @@ public class tela_inicial_cliente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public tela_inicial_cliente() {
+	public tela_inicial_funcionario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -51,15 +51,15 @@ public class tela_inicial_cliente extends JFrame {
 		lblBemVindoSr.setBounds(10, 101, 214, 19);
 		contentPane.add(lblBemVindoSr);
 
-		JButton btnNewButton = new JButton("Alugar ve\u00EDculo");
+		JButton btnNewButton = new JButton("Adicionar Veiculo");
 		btnNewButton.setBounds(10, 131, 202, 78);
 		contentPane.add(btnNewButton);
 
-		JButton button = new JButton("Reserva ve\u00EDculo");
-		button.setBounds(222, 131, 202, 78);
-		contentPane.add(button);
+		JButton btnAdicionarFuncionario = new JButton("Adicionar Funcionario\r\n");
+		btnAdicionarFuncionario.setBounds(222, 131, 202, 78);
+		contentPane.add(btnAdicionarFuncionario);
 
-		JButton btnDevolverVeculo = new JButton("Devolver ve\u00EDculo");
+		JButton btnDevolverVeculo = new JButton("Retirar Veiculo\r\n");
 		btnDevolverVeculo.setBounds(10, 219, 414, 32);
 		contentPane.add(btnDevolverVeculo);
 

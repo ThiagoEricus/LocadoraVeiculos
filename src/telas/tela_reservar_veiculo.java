@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import java.awt.Font;
 
-public class tela_alugar_carro extends JFrame {
+public class tela_reservar_veiculo extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -31,7 +31,7 @@ public class tela_alugar_carro extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					tela_alugar_carro frame = new tela_alugar_carro();
+					tela_reservar_veiculo frame = new tela_reservar_veiculo();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class tela_alugar_carro extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public tela_alugar_carro() {
+	public tela_reservar_veiculo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -89,12 +89,12 @@ public class tela_alugar_carro extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\ruann\\Desktop\\LocadoraVeiculos-27-02-2014\\Imagens\\Logomarca.png"));
-		lblNewLabel_1.setBounds(58, 0, 302, 77);
+		lblNewLabel_1.setBounds(46, 0, 302, 77);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblLocandoUmCarro = new JLabel("Locando um veiculo");
+		JLabel lblLocandoUmCarro = new JLabel("Reservando um veiculo");
 		lblLocandoUmCarro.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
-		lblLocandoUmCarro.setBounds(117, 88, 152, 14);
+		lblLocandoUmCarro.setBounds(117, 88, 168, 14);
 		contentPane.add(lblLocandoUmCarro);
 		
 		textField_4 = new JTextField();

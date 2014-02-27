@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 public class tela_cliente extends JFrame {
 
@@ -40,36 +42,42 @@ public class tela_cliente extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.textHighlight);
 		contentPane.setForeground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(161, 87, 86, 20);
+		textField.setBounds(177, 177, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblCliente = new JLabel("Cliente ");
 		lblCliente.setFont(new Font("Schadow BT", Font.BOLD | Font.ITALIC, 15));
-		lblCliente.setBounds(166, 11, 175, 32);
+		lblCliente.setBounds(181, 97, 175, 32);
 		contentPane.add(lblCliente);
 		
 		JLabel lblInsiraSeusDados = new JLabel("Insira seus dados abaixo:");
-		lblInsiraSeusDados.setBounds(79, 42, 211, 26);
+		lblInsiraSeusDados.setBounds(83, 140, 211, 26);
 		contentPane.add(lblInsiraSeusDados);
 		
 		JLabel lblCpf = new JLabel("CPF:");
-		lblCpf.setBounds(89, 90, 46, 14);
+		lblCpf.setBounds(99, 180, 46, 14);
 		contentPane.add(lblCpf);
 		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(89, 136, 46, 14);
+		lblSenha.setBounds(99, 211, 46, 14);
 		contentPane.add(lblSenha);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(161, 133, 86, 20);
+		textField_1.setBounds(177, 208, 86, 20);
 		contentPane.add(textField_1);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ruann\\Desktop\\LocadoraVeiculos-27-02-2014\\Imagens\\Logomarca.png"));
+		lblNewLabel.setBounds(80, 0, 239, 75);
+		contentPane.add(lblNewLabel);
 	}
 }
