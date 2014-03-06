@@ -89,18 +89,13 @@ public class tela_reservar_veiculo extends JFrame {
 		
 		JLabel lblParaAlugarO = new JLabel("Para alugar o carro insira os dados do pedido abaixo:");
 		lblParaAlugarO.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblParaAlugarO.setBounds(37, 126, 444, 14);
+		lblParaAlugarO.setBounds(37, 126, 444, 30);
 		contentPane.add(lblParaAlugarO);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(tela_reservar_veiculo.class.getResource("/telas/Imagens/Logomarca.png")));
-		lblNewLabel_1.setBounds(137, 0, 302, 77);
+		lblNewLabel_1.setBounds(154, 0, 263, 77);
 		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblLocandoUmCarro = new JLabel("Reservando um veiculo");
-		lblLocandoUmCarro.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
-		lblLocandoUmCarro.setBounds(193, 90, 168, 14);
-		contentPane.add(lblLocandoUmCarro);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
@@ -151,16 +146,6 @@ public class tela_reservar_veiculo extends JFrame {
 		textField_5.setBounds(197, 258, 45, 30);
 		contentPane.add(textField_5);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.BLACK);
-		panel.setBounds(10, 112, 562, 3);
-		contentPane.add(panel);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.BLACK);
-		panel_1.setBounds(276, 168, 3, 157);
-		contentPane.add(panel_1);
-		
 		JButton btnCancelar = new JButton("Cancelar\r\n");
 		btnCancelar.setBounds(300, 336, 110, 33);
 		contentPane.add(btnCancelar);
@@ -179,5 +164,20 @@ public class tela_reservar_veiculo extends JFrame {
 		lblDoVeiculo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDoVeiculo.setBounds(310, 205, 86, 14);
 		contentPane.add(lblDoVeiculo);
+		
+		JLabel lblReservandoUmCarro = new JLabel("Reservando um carro");
+		lblReservandoUmCarro.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		lblReservandoUmCarro.setBounds(182, 76, 221, 30);
+		contentPane.add(lblReservandoUmCarro);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setBounds(10, 114, 562, 1);
+		contentPane.add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.LIGHT_GRAY);
+		panel_1.setBounds(279, 167, 2, 131);
+		contentPane.add(panel_1);
 	}
 }

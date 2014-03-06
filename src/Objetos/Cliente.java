@@ -6,26 +6,25 @@ import Excecoes.SoNumerosException;
 
 public class Cliente extends Pessoa {
 	
-	private String senha;
 	private String renda;
+	private float saldo;
 
 
 
-	public String getSenha() {
-		return senha;
+	public float getSaldo() {
+		return saldo;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setSaldo(float saldo) {
+		this.saldo = saldo;
 	}
 
 	public String getRenda() {
 		return renda;
 	}
 
-	public Cliente(String cpf, String nome, String data_de_nascimento,	String estado_civil, String senha, String renda) throws QtdCpfException, SoNumerosException, SoLetrasException {
+	public Cliente(String cpf, String nome, String data_de_nascimento,	String estado_civil, String senha, String renda, float saldo) throws QtdCpfException, SoNumerosException, SoLetrasException {
 		super(cpf, nome, data_de_nascimento, estado_civil, senha);
-		this.senha = senha;
 		this.renda = renda;
 	}
 

@@ -12,6 +12,7 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
+import javax.swing.JButton;
 
 public class tela_cliente extends JFrame {
 
@@ -48,36 +49,57 @@ public class tela_cliente extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(177, 177, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
 		JLabel lblCliente = new JLabel("Cliente ");
-		lblCliente.setFont(new Font("Schadow BT", Font.BOLD | Font.ITALIC, 15));
-		lblCliente.setBounds(181, 97, 175, 32);
+		lblCliente.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCliente.setBounds(250, 73, 66, 32);
 		contentPane.add(lblCliente);
 		
 		JLabel lblInsiraSeusDados = new JLabel("Insira seus dados abaixo:");
-		lblInsiraSeusDados.setBounds(83, 140, 211, 26);
+		lblInsiraSeusDados.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblInsiraSeusDados.setBounds(20, 116, 211, 26);
 		contentPane.add(lblInsiraSeusDados);
 		
 		JLabel lblCpf = new JLabel("CPF:");
-		lblCpf.setBounds(99, 180, 46, 14);
+		lblCpf.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCpf.setBounds(69, 183, 46, 14);
 		contentPane.add(lblCpf);
 		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(99, 211, 46, 14);
+		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblSenha.setBounds(324, 183, 68, 14);
 		contentPane.add(lblSenha);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(tela_cliente.class.getResource("/telas/Imagens/Logomarca.png")));
+		lblNewLabel.setBounds(157, 0, 239, 75);
+		contentPane.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(125, 177, 119, 33);
+		contentPane.add(textField);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(177, 208, 86, 20);
+		textField_1.setBounds(398, 177, 119, 33);
 		contentPane.add(textField_1);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ruann\\Desktop\\LocadoraVeiculos-27-02-2014\\Imagens\\Logomarca.png"));
-		lblNewLabel.setBounds(80, 0, 239, 75);
-		contentPane.add(lblNewLabel);
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setBounds(10, 102, 562, 1);
+		contentPane.add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.LIGHT_GRAY);
+		panel_1.setBounds(283, 151, 2, 87);
+		contentPane.add(panel_1);
+		
+		JButton button = new JButton("Salvar");
+		button.setBounds(157, 319, 110, 33);
+		contentPane.add(button);
+		
+		JButton button_1 = new JButton("Cancelar\r\n");
+		button_1.setBounds(297, 319, 110, 33);
+		contentPane.add(button_1);
 	}
 }

@@ -6,13 +6,13 @@ import Excecoes.QtdCpfException;
 import Excecoes.SoLetrasException;
 import Excecoes.SoNumerosException;
 
-public class Pessoa extends Login{
+public class Pessoa implements Login{
 
 	protected String cpf;
 	protected String nome;
 	protected String data_de_nascimento;
 	protected String estado_civil;
-
+	protected  String senha;
 
 	public String getCpf() {
 		return cpf;
@@ -22,7 +22,6 @@ public class Pessoa extends Login{
 	}
 	public Pessoa(String cpf, String nome, String data_de_nascimento,
 			String estado_civil, String senha) throws QtdCpfException, SoNumerosException, SoLetrasException{
-		super(cpf, senha);
 		if(cpf.length()	!=	11)	
 			throw new QtdCpfException();			
 		for(int	i = 0;	i <	cpf.length(); i++){
@@ -44,6 +43,7 @@ public class Pessoa extends Login{
 				throw new SoLetrasException();
 		}
 		this.estado_civil = estado_civil;
+		this.senha = senha;
 	}
 	public String getNome() {
 		return nome;
@@ -63,5 +63,19 @@ public class Pessoa extends Login{
 	}
 	public void setEstado_civil(String estado_civil) {
 		this.estado_civil = estado_civil;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public boolean checarSenha(String cpf, String senha){
+		if(this.cpf.equals(cpf) && this.senha.equals(senha)){
+			return true;
+		}else{
+			return false;
+
+		}
 	}
 }
