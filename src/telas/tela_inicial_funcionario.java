@@ -39,7 +39,7 @@ public class tela_inicial_funcionario extends JFrame {
 	 */
 	public tela_inicial_funcionario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 450);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.textHighlight);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -72,8 +72,8 @@ public class tela_inicial_funcionario extends JFrame {
 		btnEditarContedoCadastrais.setBounds(261, 101, 163, 23);
 		contentPane.add(btnEditarContedoCadastrais);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ruann\\Desktop\\LocadoraVeiculos-27-02-2014\\Imagens\\Logomarca.png"));
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(tela_inicial_funcionario.class.getResource("/telas/Imagens/Logomarca.png")));
 		lblNewLabel.setBounds(76, 0, 248, 78);
 		contentPane.add(lblNewLabel);
 	}
