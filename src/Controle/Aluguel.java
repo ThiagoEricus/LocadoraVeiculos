@@ -9,6 +9,8 @@ public class Aluguel {
 	public int dataFinal;
 	public float total=0;
 	public Veiculo veiculo;
+	public String data_inicial; 
+	public String data_final;
 
 	public int getDataInicial() {
 		return dataInicial;
@@ -31,11 +33,13 @@ public class Aluguel {
 		return this.total;
 	}
 
-	public Aluguel(Cliente cliente, int dataInicial, int dataFinal,	 Veiculo veiculo) {
+	public Aluguel(Cliente cliente, int dataInicial, int dataFinal,	 Veiculo veiculo, String data_inicial, String data_final) {
 		super();
 		this.cliente = cliente;
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
 		this.veiculo = veiculo;
+		this.data_inicial=data_inicial;
+		this.data_final= data_final;
 	}	
 }

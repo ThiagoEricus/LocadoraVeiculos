@@ -22,6 +22,7 @@ public class Main {
 	 */
 	public static void main(String[] args) throws QtdCpfException, SoNumerosException, QtdPlacaException, PlacaException, SoLetrasException {
 
+
 		Scanner sc = new Scanner(System.in);
 		Locadora l =  new Locadora();
 		int a = -1, b = -1, c=-1;
@@ -31,6 +32,11 @@ public class Main {
 		String cpf_funcionario="";
 		String cpf="";
 
+		//INICIALIZAÇÃO DE FUNCIONARIOS E CARROS.
+		l.adicionarCliente("07565414417", "Thiago", "13/10/1986", "RN", "123", "0");
+		l.adicionarVeiculo("123123", "Volks", 250,  "QWX3636", "Vermelho", "GOL", 70);
+		l.adicionarFuncionarios("12345678901", "Joao", "13/10/1986", "solteiro", "123", 44);
+		
 		Data dataH = new Data();
 		String dataHoje=dataH.saberDiaDeHoje();
 		int diaH=dataH.fatiarDia(dataHoje);
@@ -89,9 +95,15 @@ public class Main {
 				String renda = sc.next();
 
 				try{
-					l.adicionarCliente(cpf_cliente, nome, data, estado, senha, renda);
-					login=true;
-					tipo="cliente";
+					boolean x;
+					x=l.adicionarCliente(cpf_cliente, nome, data, estado, senha, renda);
+					if(x==true){
+						System.out.println("O cliente foi cadastrado com sucesso!!");
+						login=true;
+						tipo="cliente";
+					}else{
+						System.out.println("CPF já usado!!!");
+					}
 				}catch (QtdCpfException e) {
 					e.getMessage();
 				}
@@ -164,10 +176,12 @@ public class Main {
 					int anoF = sc.nextInt();
 					System.out.println("Placa do veiculo");
 					String placa =  sc.next();
-
+					
+					String data_final=diaF+"/"+mesF+"/"+  anoF;
+					
 					Data dataF = new Data();
 					int dataFinal=dataF.trasformarEmInteiro(diaF, mesF, anoF);
-					l.adicionarAluguel(l.procurarClientes(cpf_cliente), data_Hoje, dataFinal, l.procurarVeiculos(placa));
+					l.adicionarAluguel(l.procurarClientes(cpf_cliente), data_Hoje, dataFinal, l.procurarVeiculos(placa),dataHoje,data_final);
 					break;
 					/////////////////////////////////////////////////
 				case 2:
@@ -187,12 +201,6 @@ public class Main {
 					int mesF2 = sc.nextInt();
 					System.out.println("Ano Final");
 					int anoF2 = sc.nextInt();
-					System.out.println("Dia Hoje");
-					int diaH2 = sc.nextInt();
-					System.out.println("Mes Hoje");
-					int mesH2 = sc.nextInt();
-					System.out.println("Ano Hoje");
-					int anoH2 = sc.nextInt();
 					System.out.println("Placa do veiculo");
 					placa =  sc.next();
 
@@ -201,8 +209,11 @@ public class Main {
 
 					Data dataF2 = new Data();
 					int dataFinal2= dataF2.trasformarEmInteiro(diaF2,mesF2,anoF2);
+					
+					String data_inicial2=diaI2+"/"+mesF2+"/"+anoF2;
+					String data_final2=diaF2+"/"+mesF2+"/"+anoF2;
 
-					l.adicionarReserva(dataInicial2, dataFinal2, l.procurarVeiculos(placa), l.procurarClientes(cpf_cliente), data_Hoje);
+					l.adicionarReserva(dataInicial2, dataFinal2, l.procurarVeiculos(placa), l.procurarClientes(cpf_cliente), data_Hoje, data_inicial2,data_final2);
 					break;
 					/////////////////////////////////////////////////
 				case 0:
@@ -254,7 +265,13 @@ public class Main {
 					float saldo = sc.nextFloat();
 
 					try{
-						l.adicionarCliente(cpf, nome, data, estado, senha, renda);
+						boolean x;
+						x=l.adicionarCliente(cpf, nome, data, estado, senha, renda);
+						if(x==true){
+							System.out.println("O cliente foi cadastrado com sucesso!!");
+						}else{
+							System.out.println("CPF já usado!!!");
+						}
 					}catch (QtdCpfException e) {
 						e.getMessage();
 					}
@@ -283,7 +300,13 @@ public class Main {
 					System.out.println("valor");
 					Float valor = sc.nextFloat();
 					try{
-						l.adicionarVeiculo(chassi, marca, km,  placa, cor, modelo, valor);
+						boolean y;
+						y=l.adicionarVeiculo(chassi, marca, km,  placa, cor, modelo, valor);
+						if(y==true){
+							System.out.println("Veiculo cadastrado com sucesso!!!");
+						}else{
+							System.out.println("Já existe um veiculo cadastrado com os mesmos dados!!!");
+						}
 					}catch (QtdPlacaException e) {
 						e.getMessage();
 					}catch (PlacaException e) {
@@ -303,7 +326,7 @@ public class Main {
 					break;
 					/////////////////////////////////////////////////
 				case 5:
-					l.listarVeiculosAlugados();
+					System.out.println(l.listarVeiculosAlugados());
 					break;
 					/////////////////////////////////////////////////
 				case 6:

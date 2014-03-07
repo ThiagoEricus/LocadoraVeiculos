@@ -35,16 +35,23 @@ public class Locadora {
 		}
 
 	}
-	public void listarVeiculosAlugados(){
+	public String listarVeiculosAlugados(){
 		for (Aluguel v : alugueis){
-			System.out.println(v.veiculo.getModelo());
+			return v.data_inicial+"-"+v.data_final+"-"+v.veiculo.getModelo() +"-"+ v.cliente.getNome();
+			
 		}
+		return null;
 
 	}
-	public void adicionarCliente(String cpf, String nome, String data_de_nascimento,
+	public boolean adicionarCliente(String cpf, String nome, String data_de_nascimento,
 			String estado_civil, String senha, String renda) throws QtdCpfException, SoNumerosException, SoLetrasException{
-		Cliente c = new Cliente( cpf,  nome,  data_de_nascimento, estado_civil,  senha,  renda);
-		clientes.add(c);
+		if(this.procurarClientes(cpf)==null){
+			Cliente c = new Cliente( cpf,  nome,  data_de_nascimento, estado_civil,  senha,  renda);
+			clientes.add(c);
+			return true;
+		}else{
+			return false;
+		}
 
 	}
 	public void listarClientes(){
@@ -85,16 +92,22 @@ public class Locadora {
 		}
 	}
 
-	public void adicionarVeiculo(String chassi, String marca, float kilometragem,
+	public boolean adicionarVeiculo(String chassi, String marca, float kilometragem,
 			String placa, String cor, String modelo,
 			float valorDiaria) throws QtdPlacaException, PlacaException, SoLetrasException{
-		Veiculo v = new Veiculo(chassi, marca, kilometragem, placa, cor, modelo, valorDiaria);
-		veiculos.add(v);
-		disponiveis.add(v);
+		if(this.procurarVeiculos(placa)==null){
+			Veiculo v = new Veiculo(chassi, marca, kilometragem, placa, cor, modelo, valorDiaria);
+			veiculos.add(v);
+			disponiveis.add(v);
+			return true;
+		}else{
+			return false;
+		}
+
 
 
 	}
-	
+
 	public void adicionarCarro(String chassi, String marca, float kilometragem,
 			String placa, String cor, String modelo,
 			float valorDiaria, int potencia) throws QtdPlacaException, PlacaException, SoLetrasException{
@@ -104,7 +117,7 @@ public class Locadora {
 
 
 	}
-	
+
 	public void adicionarMoto(String chassi, String marca, float kilometragem,
 			String placa, String cor, String modelo,
 			float valorDiaria, int potencia, int cc) throws QtdPlacaException, PlacaException, SoLetrasException{
@@ -114,19 +127,19 @@ public class Locadora {
 	}
 
 
-	public void adicionarAluguel(Cliente cliente, int dataInicial, int dataFinal, Veiculo veiculo){
-			float valor_total=0;
-			Aluguel a = new Aluguel(cliente, dataInicial, dataFinal, veiculo);
-			valor_total=a.setTotal(dataFinal, dataInicial);
-			cliente.setSaldo(valor_total);
-			alugueis.add(a);
-			disponiveis.remove(veiculo);
+	public void adicionarAluguel(Cliente cliente, int dataInicial, int dataFinal, Veiculo veiculo, String data_inicial, String data_final){
+		float valor_total=0;
+		Aluguel a = new Aluguel(cliente, dataInicial, dataFinal, veiculo, data_inicial, data_final);
+		valor_total=a.setTotal(dataFinal, dataInicial);
+		cliente.setSaldo(valor_total);
+		alugueis.add(a);
+		disponiveis.remove(veiculo);
 	}
-	public void adicionarReserva(int dataInicial, int dataFinal, Veiculo veiculo, Cliente cliente, int data_hoje){
+	public void adicionarReserva(int dataInicial, int dataFinal, Veiculo veiculo, Cliente cliente, int data_hoje, String data_inicial, String data_final){
 		Reserva r = new Reserva(dataInicial, dataFinal, veiculo, cliente);
 		reservas.add(r);
 		if(data_hoje>=dataInicial && data_hoje<=dataFinal){
-			this.adicionarAluguel(cliente, dataInicial, dataFinal, veiculo);
+			this.adicionarAluguel(cliente, dataInicial, dataFinal, veiculo, data_inicial, data_final);
 		}
 	}
 	protected void removerAluguel(Veiculo ve){
