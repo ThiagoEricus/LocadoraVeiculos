@@ -7,16 +7,16 @@ public class Aluguel {
 	public Cliente cliente;
 	public int dataInicial;
 	public int dataFinal;
-	public float total;
+	public float total=0;
 	public Veiculo veiculo;
-	 
+
 	public int getDataInicial() {
 		return dataInicial;
 	}
 	public void setDataInicial(int dataInicial) {
 		this.dataInicial = dataInicial;
 	}
-	
+
 	public int getDataFinal() {
 		return dataFinal;
 	}
@@ -26,11 +26,11 @@ public class Aluguel {
 	public float getTotal() {
 		return total;
 	}
-	public void setTotal(float fim, float inicio) {
-		this.total = (fim-inicio)*veiculo.getValorDiaria();
-		
+	public float setTotal(int fim, int inicio) {
+		this.total = (fim-inicio)*this.veiculo.getValorDiaria();
+		return this.total;
 	}
-		
+
 	public Aluguel(Cliente cliente, int dataInicial, int dataFinal,	 Veiculo veiculo) {
 		super();
 		this.cliente = cliente;

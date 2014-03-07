@@ -42,8 +42,8 @@ public class Locadora {
 
 	}
 	public void adicionarCliente(String cpf, String nome, String data_de_nascimento,
-			String estado_civil, String senha, String renda, float saldo) throws QtdCpfException, SoNumerosException, SoLetrasException{
-		Cliente c = new Cliente( cpf,  nome,  data_de_nascimento, estado_civil,  senha,  renda, saldo);
+			String estado_civil, String senha, String renda) throws QtdCpfException, SoNumerosException, SoLetrasException{
+		Cliente c = new Cliente( cpf,  nome,  data_de_nascimento, estado_civil,  senha,  renda);
 		clientes.add(c);
 
 	}
@@ -74,12 +74,16 @@ public class Locadora {
 		}
 		return null;
 	}
-	protected void adicionarFuncionarios(String cpf, String nome, String data_de_nascimento,String estado_civil, String senha) throws QtdCpfException, SoNumerosException, SoLetrasException{
-		Funcionario f = new Funcionario( cpf,  nome,  data_de_nascimento, estado_civil,  senha);
+	public void adicionarFuncionarios(String cpf, String nome, String data_de_nascimento,String estado_civil, String senha, int horas) throws QtdCpfException, SoNumerosException, SoLetrasException{
+		Funcionario f = new Funcionario( cpf,  nome,  data_de_nascimento, estado_civil,  senha, horas);
 		funcionarios.add(f);
 
 	}
-
+	public void listarFuncionarios(){
+		for(Funcionario c : funcionarios){
+			System.out.println(c.getNome());
+		}
+	}
 
 	public void adicionarVeiculo(String chassi, String marca, float kilometragem,
 			String placa, String cor, String modelo,
@@ -111,26 +115,25 @@ public class Locadora {
 
 
 	public void adicionarAluguel(Cliente cliente, int dataInicial, int dataFinal, Veiculo veiculo){
-		float valor_total=0;
-		int dias;
-		dias=dataFinal-dataInicial;
-		valor_total=veiculo.getValorDiaria()*dias;
-		if(valor_total<cliente.getSaldo()){
+			float valor_total=0;
 			Aluguel a = new Aluguel(cliente, dataInicial, dataFinal, veiculo);
-			a.setTotal(dataInicial, dataFinal);
+			valor_total=a.setTotal(dataFinal, dataInicial);
+			cliente.setSaldo(valor_total);
 			alugueis.add(a);
 			disponiveis.remove(veiculo);
-		}
 	}
-	public void adicionarReserva(int dataInicial, int dataFinal, Veiculo veiculo, Cliente cliente){
+	public void adicionarReserva(int dataInicial, int dataFinal, Veiculo veiculo, Cliente cliente, int data_hoje){
 		Reserva r = new Reserva(dataInicial, dataFinal, veiculo, cliente);
 		reservas.add(r);
-		disponiveis.remove(veiculo);
+		if(data_hoje>=dataInicial && data_hoje<=dataFinal){
+			this.adicionarAluguel(cliente, dataInicial, dataFinal, veiculo);
+		}
 	}
 	protected void removerAluguel(Veiculo ve){
 		for (Aluguel a : alugueis){
 			if(a.veiculo == ve){
 				alugueis.remove(a);
+				disponiveis.add(ve);
 			}
 
 		}

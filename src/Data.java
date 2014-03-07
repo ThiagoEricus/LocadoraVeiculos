@@ -1,8 +1,43 @@
-public class Data {
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
+public class Data {
+	
+	static Calendar hoje = Calendar.getInstance();
+	public static DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	
 	public int dia;
 	public int mes;
 	public int ano;
+	
+	public String saberDiaDeHoje(){
+		String hoje1="";
+		hoje1=dateFormat.format(hoje.getTime());
+		return hoje1;
+	}
+	public int fatiarDia(String data){
+		DecimalFormat df = new DecimalFormat("00"); 
+		String dt =  data;		
+		String dia = dt.charAt(0) +"" +dt.charAt(1);		
+		int d = Integer.parseInt(dia);
+		return d;
+	}
+	public int fatiarMes(String data){
+		DecimalFormat df = new DecimalFormat("00"); 
+		String dt =  data;		
+		String mes = dt.charAt(3) +"" +dt.charAt(4);		
+		int m = Integer.parseInt(mes);		
+		return m;
+	}
+	public int fatiarAno(String data){
+		DecimalFormat df = new DecimalFormat("00"); 
+		String dt =  data;
+		String ano = dt.charAt(6) +"" +dt.charAt(7)+""+dt.charAt(8) +"" +dt.charAt(9);
+		int a = Integer.parseInt(ano);
+		return a;
+	}
 
 	public int trasformarEmInteiro(int a, int b, int c){
 		int total=0;
@@ -117,6 +152,7 @@ public class Data {
 		this.dia = dia;
 		this.mes = mes;
 		this.ano = ano;
-	}	
-	
+	}
+	public Data() {		
+	}			
 }
